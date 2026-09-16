@@ -14,7 +14,7 @@ The goal wasn't to produce charts for their own sake — it was to answer the qu
 | **SQL** | 23 business-question queries across 6 areas: revenue trends, customer/RFM analysis, delivery operations, product & seller performance, payments, data quality |
 | **Python** | pandas, SQLAlchemy, scikit-learn, SciPy, Matplotlib/Seaborn — cleaning, EDA, K-Means clustering, hypothesis testing |
 | **Dashboard** | Power BI — 3 pages, fully interactive, cross-filtered |
-
+| **Report** | Standalone write-up of findings, reasoning, and business recommendations |
 ---
 
 ## Key findings
@@ -41,6 +41,9 @@ Three pages, built on the cleaned dataset and the RFM segments:
 
 Full PDF export: [`dashboards/RetailPulse_Dashboard.pdf`](dashboards/RetailPulse_Dashboard.pdf)
 
+For a deeper write-up of each finding — including limitations and prioritized next steps — 
+see [`report/insights_report.md`](report/insights_report.md).
+
 ---
 
 ## How the project is organized
@@ -66,6 +69,8 @@ RetailPulse/
 ├── dashboards/
 │   ├── RetailPulse.pbix
 │   └── RetailPulse_Dashboard.pdf
+├── report/
+│   └── insights_report.md     
 └── README.md
 ```
 
