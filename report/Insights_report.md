@@ -43,18 +43,18 @@ Across the full customer base, only about 3% of customers ever placed a second o
 
 That 3%, though, isn't trivial — they account for roughly 5% of total revenue, meaning the average repeat customer is worth noticeably more than the average one-time buyer.
 
-This was independently confirmed through a second, unrelated method: RFM (Recency, Frequency, Monetary) segmentation combined with K-Means clustering, run entirely separately from the SQL analysis above. The clustering identified four natural customer groups without being told anything about the 3% repeat-purchase figure, and one of those groups — labeled "Champions" after the fact based on its characteristics — came out to almost exactly the same size:
+This was independently confirmed through a second, unrelated method: RFM (Recency, Frequency, Monetary) segmentation combined with K-Means clustering, run entirely separately from the SQL analysis above. The clustering identified four natural customer groups, and the smallest one — labeled "Champions" based on its recency, frequency, and spend profile — lines up closely with the same ~3%/~5% pattern found in SQL:
 
 | Segment | Customers | Share of base | Share of revenue |
 |---|---:|---:|---:|
-| Champions | 2,801 | ~3% | 61.5% |
-| Potential Loyalists | 32,400 | ~35% | 22.6% |
-| New / Low-Value | 31,016 | ~33% | 5.5% |
-| Lost | 27,141 | ~29% | 10.4% |
+| Potential Loyalists | 32,400 | ~35% | 61.5% |
+| Lost | 27,141 | ~29% | 22.6% |
+| New / Low-Value | 31,016 | ~33% | 10.4% |
+| Champions | 2,801 | ~3% | 5.5% |
 
-The Champions figure (61.5% of revenue from 3% of customers) looks more extreme than the earlier 5% number because it's measuring something slightly different — total historical spend per customer rather than order count alone — but both point the same direction: retention has an outsized payoff here.
+Champions and Potential Loyalists spend almost the same amount per customer on average (₹260 vs. ₹251) — the difference in total revenue share comes almost entirely from group size, not spending power. Potential Loyalists earn their name here: they're a much larger group of one-time buyers who already spent a meaningful amount, making them the highest-leverage retention target by sheer volume, even though Champions are individually the more loyal, repeat-purchasing customers.
 
-**Why it matters:** Potential Loyalists — 32,400 customers who bought once, spent a meaningful amount (₹251 on average), and did so recently — are the most efficient group to target for a second-purchase campaign. They already showed real intent; they just haven't been given a reason to come back. The Lost segment, despite being larger, has both been gone longer (425 days on average) and spent less to begin with, making it a lower-priority, harder win-back.
+**Why it matters:** Potential Loyalists — 32,400 customers who bought once, spent a meaningful amount, and did so recently — are the most efficient group to target for a second-purchase campaign. They already showed real intent; they just haven't been given a reason to come back. The Lost segment, despite being similar in size, has both been gone far longer (425 days on average vs. 160 for Potential Loyalists) and spent noticeably less per customer, making it a lower-priority, harder win-back.
 
 ---
 
@@ -110,7 +110,7 @@ This finding came up independently in both the SQL trend analysis and the separa
 If I were prioritizing next steps for this business based on what's here, in order:
 
 1. **Investigate Maranhão's delivery pipeline specifically** — the gap is large and the sample is big enough to trust.
-2. **Build a targeted second-purchase campaign for the Potential Loyalists segment** — 32,400 customers who already showed real spend and recency, the highest-leverage retention opportunity in the data.
+2. **Build a targeted second-purchase campaign for the Potential Loyalists segment** — 32,400 customers who already showed real spend and recency, the segment driving the largest share of revenue and the highest-leverage retention opportunity in the data.
 3. **Test whether AOV can be moved** — since growth so far has been entirely volume-driven, bundling or minimum-order incentives represent an untested lever.
 
 ---
